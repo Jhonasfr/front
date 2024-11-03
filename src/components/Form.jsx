@@ -39,13 +39,13 @@ function Form({ callback }) {
 
     return (
         <form onSubmit={validateUser}>
-            <h1 id="txtBienvenida">Bienvenido, regístrate para reclamar tus premios</h1>
-            <h4 className="txt">Nombre de Usuario</h4>
+            <h1 id="txtBienvenida">Bienvenidoy canjea el codigo</h1>
+            <h4 className="txt">correo del Usuario</h4>
             <input type="text" className="entry" onChange={(e) => setUsername(e.target.value)} required /><br />
             <h4 className="txt">Contraseña</h4>
             <input type="password" className="entry" onChange={(e) => setPassword(e.target.value)} required /><br />
             <input type="submit" value="Ingresar" id="btnEnviar" />
-            <button type="button" id="btnAddUser" onClick={handleAddUserClick}>Crear Nuevo Usuario</button>
+            <button type="button" id="btnAddUser" onClick={handleAddUserClick}>Crear Nuevo</button>
         </form>
     );
 }

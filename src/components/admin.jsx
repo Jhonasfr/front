@@ -36,7 +36,7 @@ function Admin({ callback }) {
 
     return (
         <form onSubmit={validateAdmin}>
-            <h1 id="txtBienvenida">Bienvenido Administrador, ingresa para gestionar premios</h1>
+            <h1 id="txtBienvenida">Bienvenido, ingresa para gestionar los ganadores</h1>
             <h4 className="txt">Nombre de Usuario</h4>
             <input 
                 type="text" 
