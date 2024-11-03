@@ -7,7 +7,7 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19');
+            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/getCodes?usuarioId=${user}');
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
