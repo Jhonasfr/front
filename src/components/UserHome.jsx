@@ -33,7 +33,7 @@ function UserHome() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ codigo: codeInput, usuarioId: '6720f4d58d30103289c4ed19' }), // Actualiza `usuarioId` según corresponda
+                body: JSON.stringify({ codigo: codeInput, usuarioId: user }),
             });
             if (response.ok) {
                 setCodeInput('');
