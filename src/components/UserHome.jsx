@@ -7,14 +7,16 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); 
+            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19');
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
+                setError(null);
             } else {
-                console.error('Error al obtener los códigos:', data.message);
+                setError(data.error || 'Error al obtener los códigos');
             }
         } catch (error) {
+            setError('Error al conectarse al servidor');
             console.error('Error al conectarse al servidor:', error);
         }
     };
@@ -23,21 +25,19 @@ function UserHome() {
         fetchCodes();
     }, []);
 
-
     const registerCode = async (event) => {
         event.preventDefault();
-        // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
-            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/redeemCode', {
+            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/redeemCode', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ codigo: codeInput, usuarioId:"6720f4d58d30103289c4ed19" }),
+                body: JSON.stringify({ codigo: codeInput, usuarioId: '6720f4d58d30103289c4ed19' }), // Actualiza `usuarioId` según corresponda
             });
             if (response.ok) {
-                setCodeInput(''); // Limpiar el input después de registrar
-                fetchCodes(); // Volver a obtener los códigos para mostrar el nuevo
+                setCodeInput('');
+                fetchCodes();
             } else {
                 const data = await response.json();
                 console.error('Error al registrar el código:', data.message);
@@ -53,9 +53,10 @@ function UserHome() {
             <form onSubmit={registerCode}>
                 <input
                     type="text"
-                    placeholder="Código de 4 dígitos"
+                    placeholder="Código de 3 dígitos"
                     value={codeInput}
                     onChange={(e) => setCodeInput(e.target.value)}
+                    required
                 />
                 <button type="submit">Registrar</button>
             </form>
@@ -71,7 +72,7 @@ function UserHome() {
                     <tbody>
                         {codes.map((code, index) => (
                             <tr key={index}>
-                                <td>{code.fechaRegistro}</td>
+                                <td>{new Date(code.fechaRegistro).toLocaleString()}</td>
                                 <td>{code.codigo}</td>
                                 <td>{code.premio}</td>
                             </tr>
@@ -82,7 +83,5 @@ function UserHome() {
         </div>
     );
 }
-
-jOyFDLwwh29RUYqe
 
 export default UserHome;

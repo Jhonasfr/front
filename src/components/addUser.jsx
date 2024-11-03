@@ -2,35 +2,43 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/addUser.css';
 
-
 function AddUser() {
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
     const [fechaNacimiento, setFechaNacimiento] = useState('');
     const [cedula, setCedula] = useState('');
     const [correo, setCorreo] = useState('');
     const [celular, setCelular] = useState('');
     const [ciudad, setCiudad] = useState('');
-    const [role] = useState('user');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('user');
     const goTo = useNavigate();
 
     const handleAddUser = async (event) => {
         event.preventDefault();
         
         try {
-            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/addUser', {
+            const response = await fetch('https://backen-bice.vercel.app/v1/signos/addUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password, role, fechaNacimiento, cedula, correo, celular, ciudad }),
+                body: JSON.stringify({
+                    username,
+                    password,
+                    role,
+                    fechaNacimiento,
+                    cedula,
+                    correo,
+                    celular,
+                    ciudad
+                }),
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                alert('Usuario agregado.');
-                goTo('/'); 
+                alert('Usuario agregado con éxito.');
+                goTo('/');
             } else {
                 alert(data.error || 'Error al agregar el usuario.');
             }
@@ -112,7 +120,7 @@ function AddUser() {
             /><br />
 
             <input type="submit" value="Agregar Usuario" className="btn" />
-            <button type="button" onClick={handleBack} className="btn">Volver</button>
+            <button type="button" onClick={handleBack} className="btn">Volver al Inicio</button>
         </form>
     );
 }

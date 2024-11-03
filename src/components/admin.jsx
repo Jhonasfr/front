@@ -11,9 +11,8 @@ function Admin({ callback }) {
         event.preventDefault();
         const role = 'admin';
 
-
         try {
-            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/login', {
+            const response = await fetch('https://backen-bice.vercel.app/v1/signos/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,6 +23,7 @@ function Admin({ callback }) {
             const data = await response.json();
             console.log(data)
             if (response.ok) {
+                callback(data._id, role);
                 goTo('/adminHome');
             } else {
                 alert(data.message || 'Credenciales incorrectas');
@@ -46,7 +46,7 @@ function Admin({ callback }) {
             /><br />
             <h4 className="txt">Contraseña</h4>
             <input 
-                type="contraseña" 
+                type="password" 
                 className="entry" 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 

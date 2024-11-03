@@ -27,6 +27,8 @@ function App() {
         <Route path='/userHome' element={<UserHome user={user} personaType={personaType}/>}></Route>
         {/* Solo se pasa el usuario a AdminHome */}
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
+        {/* Nueva ruta para el cambio de contraseña */}
+
         {/* Nueva ruta para agregar usuario */}
         <Route path='/addUser' element={<AddUser />}></Route> {/* Añadir la nueva ruta */}
         {/* Nueva ruta para ingresar como admin */}
