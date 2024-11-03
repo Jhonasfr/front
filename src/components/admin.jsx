@@ -11,6 +11,7 @@ function Admin({ callback }) {
         event.preventDefault();
         const role = 'admin';
 
+
         try {
             const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/login', {
                 method: 'POST',
@@ -45,7 +46,7 @@ function Admin({ callback }) {
             /><br />
             <h4 className="txt">Contraseña</h4>
             <input 
-                type="password" 
+                type="contraseña" 
                 className="entry" 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 

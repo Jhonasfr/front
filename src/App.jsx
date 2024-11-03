@@ -2,7 +2,6 @@ import './App.css';
 import Form from './components/Form';
 import UserHome from './components/UserHome';
 import AdminHome from './components/AdminHome';
-import ChangePassword from './components/ChangePassword';
 import AddUser from './components/addUser';
 import Admin from './components/admin'; // Importar el nuevo componente
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
@@ -28,8 +27,6 @@ function App() {
         <Route path='/userHome' element={<UserHome user={user} personaType={personaType}/>}></Route>
         {/* Solo se pasa el usuario a AdminHome */}
         <Route path='/adminHome' element={<AdminHome user={user}/>}></Route>
-        {/* Nueva ruta para el cambio de contraseña */}
-        <Route path='/changePassword' element={<ChangePassword user={user} />}></Route>
         {/* Nueva ruta para agregar usuario */}
         <Route path='/addUser' element={<AddUser />}></Route> {/* Añadir la nueva ruta */}
         {/* Nueva ruta para ingresar como admin */}
