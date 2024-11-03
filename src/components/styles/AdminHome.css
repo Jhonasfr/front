@@ -13,19 +13,13 @@ h1 {
 .table-container {
     display: flex;
 
-    max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+    max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
     overflow-y: auto;
-    width: 100%;
-    border: 1px solid #ddd;
+    width: 150%;
+    border: 2px solid #ddd;
 }
 
-.styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-}
+
 
 .styled-table th,
 .styled-table td {
@@ -43,13 +37,6 @@ h1 {
     z-index: 1; /* Asegura que el thead esté encima del contenido del tbody */
 }
 
-.styled-table tr:nth-child(even) {
-    background-color: #cdcf45; /* Color de filas pares */
-}
-
-.styled-table tr:hover {
-    background-color: #c52929; /* Color de fondo al pasar el ratón */
-}
 
 
 

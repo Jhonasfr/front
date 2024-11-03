@@ -44,7 +44,7 @@ function AddUser() {
             }
         } catch (error) {
             console.error('Error al agregar el usuario:', error);
-            alert('Hubo un problema con el servidor. Intenta de nuevo más tarde.');
+            
         }
     };
 

@@ -39,7 +39,7 @@ function Form({ callback }) {
 
     return (
         <form onSubmit={validateUser}>
-            <h1 id="txtBienvenida">Bienvenidoy canjea el codigo</h1>
+            <h1 id="txtBienvenida">Bienvenido, ingresa para canjear el codigo</h1>
             <h4 className="txt">correo del Usuario</h4>
             <input type="text" className="entry" onChange={(e) => setUsername(e.target.value)} required /><br />
             <h4 className="txt">Contraseña</h4>
