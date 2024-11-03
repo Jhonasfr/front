@@ -7,7 +7,7 @@ function AdminHome({ user }) {
     useEffect(() => {
         const fetchWinners = async () => {
             try {
-                const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/viewUser');
+                const response = await fetch('https://backen-gamma.vercel.app/v1/signos/viewUser');
                 const data = await response.json();
 
                 if (response. ok) {

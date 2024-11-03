@@ -12,7 +12,7 @@ function Form({ callback }) {
         const role = 'user';  // Solo usuarios, no admins
 
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/login', {
+            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ function Form({ callback }) {
             console.log(data)
             if (response.ok) {
                 callback(role);
-                goTo('/userHome');  // Redirige solo a userHome
+                goTo('/userHome'); 
             } else {
                 alert(data.message || 'Credenciales incorrectas');
             }
@@ -41,13 +41,13 @@ function Form({ callback }) {
 
     return (
         <form onSubmit={validateUser}>
-            <h1 id="txtBienvenida">Bienvenido, regístrate para reclamar tus premios</h1>
-            <h4 className="txt">Nombre de Usuario</h4>
+            <h1 id="txtBienvenida">Bienvenido</h1>
+            <h4 className="txt">correo</h4>
             <input type="text" className="entry" onChange={(e) => setUsername(e.target.value)} required /><br />
-            <h4 className="txt">Contraseña</h4>
+            <h4 className="txt">password</h4>
             <input type="password" className="entry" onChange={(e) => setPassword(e.target.value)} required /><br />
             <input type="submit" value="Ingresar" id="btnEnviar" />
-            <button type="button" id="btnAddUser" onClick={handleAddUserClick}>Crear Nuevo Usuario</button>
+            <button type="button" id="btnAddUser" onClick={handleAddUserClick}>Crear Usuario</button>
         </form>
     );
 }

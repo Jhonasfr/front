@@ -11,14 +11,14 @@ function AddUser() {
     const [correo, setCorreo] = useState('');
     const [celular, setCelular] = useState('');
     const [ciudad, setCiudad] = useState('');
-    const [role, setRole] = useState('user');
+    const [role] = useState('user');
     const goTo = useNavigate();
 
     const handleAddUser = async (event) => {
         event.preventDefault();
         
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/addUser', {
+            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/addUser', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function AddUser() {
             const data = await response.json();
 
             if (response.ok) {
-                alert('Usuario agregado con éxito.');
+                alert('Usuario agregado.');
                 goTo('/'); 
             } else {
                 alert(data.error || 'Error al agregar el usuario.');
@@ -112,7 +112,7 @@ function AddUser() {
             /><br />
 
             <input type="submit" value="Agregar Usuario" className="btn" />
-            <button type="button" onClick={handleBack} className="btn">Volver al Inicio</button>
+            <button type="button" onClick={handleBack} className="btn">Volver</button>
         </form>
     );
 }

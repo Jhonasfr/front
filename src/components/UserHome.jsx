@@ -7,7 +7,7 @@ function UserHome() {
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); // Endpoint para obtener los códigos registrados
+            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/getCodes?usuarioId=6720f4d58d30103289c4ed19'); 
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -28,7 +28,7 @@ function UserHome() {
         event.preventDefault();
         // Lógica para registrar el código, puedes ajustar según tu implementación
         try {
-            const response = await fetch('https://back-alpha-two.vercel.app/v1/signos/redeemCode', {
+            const response = await fetch('https://backen-gamma.vercel.app/v1/signos/redeemCode', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,5 +83,6 @@ function UserHome() {
     );
 }
 
+jOyFDLwwh29RUYqe
 
 export default UserHome;
