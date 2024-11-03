@@ -4,7 +4,7 @@ body {
     align-items: center; /* Centra verticalmente */
     min-height: 100vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
     margin: 0; /* Elimina márgenes predeterminados */
-    background-color: #1156e068; /* Cambia esto al color que desees */
+    background-color: #0c4fd468; /* Cambia esto al color que desees */
     color: white; /* Asegúrate de que el texto sea visible en el nuevo fondo */
     text-align: center;
 }

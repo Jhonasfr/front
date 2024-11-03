@@ -1,13 +1,16 @@
 import './styles/UserHome.css';
 import { useEffect, useState } from 'react';
 
-function UserHome() {
+function UserHome({ user }) {
     const [codes, setCodes] = useState([]);
     const [codeInput, setCodeInput] = useState('');
+    const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
+    
 
     const fetchCodes = async () => {
         try {
-            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/getCodes?usuarioId=${user}');
+            const response = await fetch(`https://backen-bice.vercel.app/v1/signos/getCodes?usuarioId=${user}`);
             const data = await response.json();
             if (response.ok) {
                 setCodes(data);
@@ -28,28 +31,33 @@ function UserHome() {
     const registerCode = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch('https://backen-bice.vercel.app/api/v1/signos/redeemCode', {
+            const response = await fetch('https://backen-bice.vercel.app/v1/signos/redeemCode', {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ codigo: codeInput, usuarioId: user }),
             });
+            const data = await response.json();
             if (response.ok) {
-                setCodeInput('');
                 fetchCodes();
+                setSuccessMessage('Código registrado ');
             } else {
-                const data = await response.json();
-                console.error('Error al registrar el código:', data.message);
+                setError(data.error || 'Error al registrar el código');
             }
         } catch (error) {
+            setError('Error al conectarse al servidor');
+            setSuccessMessage(null); 
             console.error('Error al conectarse al servidor:', error);
         }
     };
 
+    
+
     return (
         <div className="container">
             <h1>Registrar Código</h1>
+            {error && <p className="error">{error}</p>}
             <form onSubmit={registerCode}>
                 <input
                     type="text"

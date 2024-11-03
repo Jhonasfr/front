@@ -1,8 +1,9 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    .table-container {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+    
 }
 
 h1 {
@@ -11,6 +12,7 @@ h1 {
 }
 
 .styled-table {
+    
     width: 100%;
     border-collapse: collapse;
     font-size: 18px;
@@ -19,23 +21,24 @@ h1 {
 }
 
 .styled-table thead th {
+    
     position: sticky;
     top: 0;
-    background-color: #0ea3e9;
     color: white;
     padding: 12px 15px;
-    border: 1px solid #0ea3e9;
     z-index: 1;
 }
 
 .styled-table th, 
 .styled-table td {
+    background-color:#1a2669; 
+
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
 
 .styled-table tbody tr:nth-child(even) {
-    background-color: #1156e068;
+    background-color: #1d5ad468;
 }
 
 .styled-table tbody tr:hover {
@@ -64,7 +67,7 @@ input[type="text"] {
 
 button {
     padding: 10px 15px;
-    background-color: blue;
+    background-color: rgb(23, 23, 179);
     color: white;
     border: none;
     border-radius: 5px;

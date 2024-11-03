@@ -1,9 +1,8 @@
 .container {
-    height: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    .table-container {
+        width: 100%;
+        border: 1px solid #ddd;
+    }
 }
 
 h1 {
@@ -12,6 +11,8 @@ h1 {
 }
 
 .table-container {
+    display: flex;
+
     max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
     overflow-y: auto;
     width: 100%;
@@ -35,7 +36,7 @@ h1 {
 .styled-table thead th {
     position: sticky;
     top: 0;
-    background-color: #0ea3e9;
+    background-color: #93a52b;
     color: white;
     padding: 12px 15px;
     border: 1px solid #ddd;
@@ -43,33 +44,15 @@ h1 {
 }
 
 .styled-table tr:nth-child(even) {
-    background-color: #0ea3e9; /* Color de filas pares */
+    background-color: #cdcf45; /* Color de filas pares */
 }
 
 .styled-table tr:hover {
-    background-color: #ddd; /* Color de fondo al pasar el ratón */
+    background-color: #c52929; /* Color de fondo al pasar el ratón */
 }
 
-/* Estilo para el contenedor de registros con desplazamiento */
-.scroll-container {
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    border: 1px solid #1156e068;
-    padding: 10px;
-    margin-top: 20px;
-}
 
-.scroll-container h2 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
 
-.record {
-    padding: 10px;
-    border-bottom: 1px solid #1156e068;
-}
 
-.record p {
-    margin: 5px 0;
-}
+
+
